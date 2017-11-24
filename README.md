@@ -1,6 +1,6 @@
 # homebridge-nest-cam
 
-ffmpeg plugin for [Homebridge](https://github.com/nfarina/homebridge)
+Use your Nest Cam as IP camera in HomeKit with [Homebridge](https://github.com/nfarina/homebridge).
 
 ## Installation
 
