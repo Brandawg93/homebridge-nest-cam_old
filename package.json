@@ -14,7 +14,7 @@
     "url": "http://github.com/KhaosT/homebridge-nest-cam/issues"
   },
   "engines": {
-    "node": ">=5.0.0",
+    "node": ">=8.0.0",
     "homebridge": ">=0.4.5"
   },
   "dependencies": {
