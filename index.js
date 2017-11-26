@@ -8,7 +8,7 @@ module.exports = (homebridge) => {
   hap = homebridge.hap;
   UUIDGen = homebridge.hap.uuid;
 
-  homebridge.registerPlatform("homebridge-nest-cam", "Nest-cam", NestCamPlatform, true);
+  homebridge.registerPlatform('homebridge-nest-cam', 'Nest-cam', NestCamPlatform, true);
 }
 
 class NestCamPlatform {
@@ -19,7 +19,7 @@ class NestCamPlatform {
     if (api) {
       self.api = api;
       if (api.version < 2.1) {
-        throw new Error("Unexpected API version.");
+        throw new Error('Unexpected API version.');
       }
 
       self.api.on('didFinishLaunching', self.didFinishLaunching.bind(this));
@@ -44,7 +44,7 @@ class NestCamPlatform {
         accessory.configureCameraSource(camera);
         configuredAccessories.push(accessory);
       });
-      self.api.publishCameraAccessories("Nest-cam", configuredAccessories);
+      self.api.publishCameraAccessories('Nest-cam', configuredAccessories);
     });
     self.nestAPI.fetchSessionTokenAndUpdateCameras();
   }
