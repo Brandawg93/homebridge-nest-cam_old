@@ -15,6 +15,8 @@ Use your Nest Cam as IP camera in HomeKit with [Homebridge](https://github.com/n
     {
       "platform": "Nest-cam",
       "username": "",
-      "password": ""
+      "password": "",
+      "useOMX": false,
     }
     
+On Raspberry Pi you might want to use OMX for transcoding as CPU on the board is too slow. In that case, make sure the ffmpeg you installed has `h264_omx` support. There are [pre-compiled deb](https://github.com/legotheboss/homebridge-camera-ffmpeg-omx) online if you don't want to compile one yourself.

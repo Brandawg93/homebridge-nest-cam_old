@@ -36,7 +36,7 @@ class NestCamPlatform {
     self.nestAPI.on('cameras', (cameras) => {
       let configuredAccessories = [];
       cameras.forEach((camera) => {
-        camera.configureWithHAP(hap);
+        camera.configureWithHAP(hap, self.config.useOMX);
         let name = camera.name;
         let uuid = UUIDGen.generate(camera.uuid);
         let accessory = new Accessory(name, uuid, hap.Accessory.Categories.CAMERA);
