@@ -1,6 +1,6 @@
 {
   "name": "homebridge-nest-cam",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Nest cam plugin for homebridge: https://github.com/nfarina/homebridge",
   "license": "ISC",
   "keywords": [
