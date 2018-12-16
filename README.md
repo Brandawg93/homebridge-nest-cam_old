@@ -14,9 +14,29 @@ Use your Nest Cam as IP camera in HomeKit with [Homebridge](https://github.com/n
 
     {
       "platform": "Nest-cam",
-      "username": "",
-      "password": "",
+      "access_token": "",
       "useOMX": false
     }
     
 On Raspberry Pi you might want to use OMX for transcoding as CPU on the board is too slow. In that case, make sure the ffmpeg you installed has `h264_omx` support. There are [pre-compiled deb](https://github.com/legotheboss/homebridge-camera-ffmpeg-omx) online if you don't want to compile one yourself.
+
+### How to get Access Token?
+
+You can get access token from your Nest account by running the following command in terminal. If your account does not have 2FA enabled, you should be able to see `access_token` in the response.
+
+```
+curl -X "POST" "https://home.nest.com/session" \
+     -H 'User-Agent: iPhone iPhone OS 11.0 Dropcam/5.14.0 com.nestlabs.jasper.release Darwin' \
+     -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
+     --data-urlencode "email=YOUR_NEST_EMAIL" \
+     --data-urlencode "password=YOUR_PASSWORD"
+```
+
+If your account has 2FA enabled, after running the command above, you should see a `2fa_token` in the response, use that and the code you received from SMS to make the second request. If success, you should see `access_token` in the response.
+
+```
+curl -X "POST" "https://home.nest.com/api/0.1/2fa/verify_pin" \
+     -H 'User-Agent: iPhone iPhone OS 11.0 Dropcam/5.14.0 com.nestlabs.jasper.release Darwin' \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{"pin": "CODE_FROM_SMS","2fa_token": "TOKEN_FROM_PRIOR_REQUEST"}'
+```
