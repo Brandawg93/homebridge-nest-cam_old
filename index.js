@@ -37,7 +37,7 @@ class NestCamPlatform {
     {
       throw new Error('access_token is not defined in the Homebridge config');
     }
-     self.nestAPI = new Nest(accessToken);
+    self.nestAPI = new Nest(accessToken);
     self.nestAPI.on('cameras', (cameras) => {
       let configuredAccessories = [];
       cameras.forEach((camera) => {
