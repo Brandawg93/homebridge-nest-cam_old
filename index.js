@@ -33,7 +33,7 @@ class NestCamPlatform {
   didFinishLaunching() {
     let self = this;
     let accessToken = self.config['access_token'];
-    if ( typeof access_token == 'undefined' || access_token )
+    if ( typeof accessToken == 'undefined' || accessToken )
     {
       throw new Error('access_token is not defined in the Homebridge config');
     }
