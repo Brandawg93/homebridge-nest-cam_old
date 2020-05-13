@@ -1,3 +1,6 @@
+## IMPORTANT
+This project has been archived. You can find the latest homebridge-nest-cam plugin [here](https://github.com/Brandawg93/homebridge-nest-cam).
+
 # homebridge-nest-cam
 
 Use your Nest Cam as IP camera in HomeKit with [Homebridge](https://github.com/nfarina/homebridge).
